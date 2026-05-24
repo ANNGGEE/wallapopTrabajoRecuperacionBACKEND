@@ -103,3 +103,10 @@ data/
 # OS
 .DS_Store
 Thumbs.db
+
+# Spring config sensible
+application.properties
+application.yml
+
+# Config local
+src/main/resources/application-local.properties
