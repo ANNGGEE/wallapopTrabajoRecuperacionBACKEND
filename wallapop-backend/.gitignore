@@ -1,0 +1,105 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# =========================
+# IntelliJ / Java / Spring
+# =========================
+
+.idea/
+*.iml
+target/
+out/
+
+# Logs
+*.log
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# H2 database
+data/
+*.mv.db
+*.trace.db
+
+# =========================
+# Node / React / Vite
+# =========================
+
+node_modules/
+dist/
+build/
+
+# Vite
+.vite/
+
+# =========================
+# Environment files
+# =========================
+
+.env
+.env.local
+
+# =========================
+# OS files
+# =========================
+
+.DS_Store
+Thumbs.db
+
+HELP.md
+
+# Maven / Java
+target/
+out/
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
+
+# H2 Database
+data/
+*.mv.db
+*.trace.db
+
+# OS
+.DS_Store
+Thumbs.db
