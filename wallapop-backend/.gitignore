@@ -109,4 +109,4 @@ application.properties
 application.yml
 
 # Config local
-src/main/resources/application-local.properties
+wallapop/src/main/resources/application-local.properties
