@@ -52,7 +52,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
         } catch (Exception e) {
             SecurityContextHolder.clearContext();
-            filterChain.doFilter(request, response); // 👈 IMPORTANTE: no rompas requests públicos
+            filterChain.doFilter(request, response);
             return;
         }
 
