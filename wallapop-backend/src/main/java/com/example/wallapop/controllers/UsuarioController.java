@@ -1,7 +1,9 @@
 package com.example.wallapop.controllers;
 
+import com.example.wallapop.dto.AnuncioDTO;
 import com.example.wallapop.dto.UsuarioDTO;
 import com.example.wallapop.entities.Usuario;
+import com.example.wallapop.mapper.AnuncioMapper;
 import com.example.wallapop.repositories.UsuarioRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,36 @@ public class UsuarioController {
                 ))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/buscar")
+    public List<UsuarioDTO> buscar(
+            @RequestParam String texto
+    ) {
+
+        return repo.buscar(texto)
+                .stream()
+                .map(u -> new UsuarioDTO(
+                        u.getId(),
+                        u.getNombre(),
+                        u.getEmail(),
+                        u.getImagen()
+                ))
+                .toList();
+    }
+
+    @GetMapping("/{id}/anuncios")
+    public List<AnuncioDTO> anunciosUsuario(
+            @PathVariable Long id
+    ) {
+
+        Usuario usuario = repo.findById(id)
+                .orElseThrow();
+
+        return usuario.getAnuncios()
+                .stream()
+                .map(AnuncioMapper::toAnuncioDTO)
+                .toList();
     }
 
     @PostMapping
