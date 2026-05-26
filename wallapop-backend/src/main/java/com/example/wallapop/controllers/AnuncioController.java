@@ -10,6 +10,7 @@ import com.example.wallapop.repositories.CategoriaRepository;
 import com.example.wallapop.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -136,15 +137,19 @@ public class AnuncioController {
 
             if (body.get("categorias") != null) {
 
-                List<String> categoriasNombres =
-                        (List<String>) body.get("categorias");
+                List<?> categoriasRaw = (List<?>) body.get("categorias");
+
+                List<String> categoriasNombres = categoriasRaw.stream()
+                        .map(Object::toString)
+                        .toList();
 
                 List<Categoria> categorias = categoriaRepo.findAll()
                         .stream()
                         .filter(c -> categoriasNombres.contains(c.getNombre()))
                         .toList();
 
-                anuncio.setCategorias(categorias);
+                anuncio.getCategorias().clear();
+                anuncio.getCategorias().addAll(categorias);
             }
 
             repo.save(anuncio);
