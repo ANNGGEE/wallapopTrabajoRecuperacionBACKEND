@@ -31,7 +31,7 @@ public class Anuncio {
     @JsonIgnoreProperties({"anuncios"})
     private Usuario comprador;  // null = disponible
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Categoria> categorias;
 
     public boolean isComprado() {
