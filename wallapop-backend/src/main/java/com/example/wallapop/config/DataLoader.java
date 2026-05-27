@@ -77,7 +77,7 @@ public class DataLoader {
 
                 int numAnuncios = 1 + random.nextInt(3);
 
-                // 🔹 4. Crear anuncios
+                // Crear anuncios
                 for (int j = 0; j < numAnuncios && j < productos.size(); j++) {
 
                     Anuncio anuncio = new Anuncio();
@@ -88,7 +88,7 @@ public class DataLoader {
                     anuncio.setImagen(null);
                     anuncio.setUsuario(usuario);
 
-                    // 🔹 5. Asignar categorías aleatorias por anuncio
+                    // Asignar categorías aleatorias por anuncio
                     List<Categoria> copia = new ArrayList<>(categoriasBD);
                     Collections.shuffle(copia);
 

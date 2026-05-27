@@ -110,7 +110,7 @@ public class UsuarioController {
 
             String authenticatedUserEmail = authentication.getName();
 
-            // impedir editar otro usuario
+            // Impedir editar otro usuario
             if (!usuario.getEmail().equals(authenticatedUserEmail)) {
                 return ResponseEntity
                         .status(403)
@@ -167,7 +167,7 @@ public class UsuarioController {
             String authenticatedUserEmail =
                     authentication.getName();
 
-            // impedir borrar otros usuarios
+            // Impedir borrar otros usuarios
             if (!usuario.getEmail().equals(authenticatedUserEmail)) {
 
                 return ResponseEntity
